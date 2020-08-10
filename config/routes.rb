@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :itinerary_events
   resources :events
   resources :destinations
   resources :itineraries

@@ -1,0 +1,2 @@
+class ItineraryEventsController < ApplicationController
+end
