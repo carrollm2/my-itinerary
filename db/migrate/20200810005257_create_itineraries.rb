@@ -4,7 +4,7 @@ class CreateItineraries < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :user_id
       t.integer :destination_id
-      t.text: notes
+      t.text :notes
 
       t.timestamps
     end
