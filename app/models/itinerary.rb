@@ -1,4 +1,4 @@
 class Itinerary < ApplicationRecord
     belongs_to :user
-    belongs_to :destinations
+    belongs_to :destination
 end
