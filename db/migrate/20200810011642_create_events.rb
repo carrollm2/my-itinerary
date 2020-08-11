@@ -4,7 +4,6 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :ticket_site
       t.date :event_date
-      t.time :event_time
 
       t.timestamps
     end
