@@ -10,20 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_012113) do
+ActiveRecord::Schema.define(version: 2020_08_10_011642) do
 
   create_table "destinations", force: :cascade do |t|
-    t.integer "itinerary_id"
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer "destination_id"
     t.text "description"
     t.string "ticket_site"
     t.date "event_date"
-    t.time "event_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,13 +30,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_012113) do
   create_table "itineraries", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "itinerary_events", force: :cascade do |t|
-    t.integer "itinerary_id"
-    t.integer "event_id"
+    t.integer "destination_id"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
