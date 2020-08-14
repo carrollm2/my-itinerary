@@ -2,6 +2,9 @@
 
 <%= form_for(@itinerary) do |f| %>
 
+    Select Destination:<br>
+    <%= f.collection_select :destination_ids, Destination.all, :id, :city %><br><br>
+
     <%= f.label :notes %>
     <%= f.text_area :notes %>
 
