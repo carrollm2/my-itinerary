@@ -1,0 +1,10 @@
+<h1>New Itinerary</h1>
+
+<%= form_for(@itinerary) do |f| %>
+
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+
+    <%= f.submit %>
+
+<% end %>
