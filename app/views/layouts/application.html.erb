@@ -12,7 +12,9 @@
   <body>
     <div>
       <% if logged_in? %>
-        <%=link_to "Logout", logout_path, method:"delete" %>
+        <%= link_to "Add Itinerary", new_itinerary_path %>
+        <%= link_to "All Itineraries", itineraries_path %>
+        <%= link_to "Logout", logout_path, method:"delete" %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
         <%= link_to "Log In", login_path %>
