@@ -15,6 +15,6 @@ class ItinerariesController < ApplicationController
 
     private
     def itinerary_params
-        params.require(:post).permit(:notes)
+        params.require(:itinerary).permit(:notes)
     end
 end
