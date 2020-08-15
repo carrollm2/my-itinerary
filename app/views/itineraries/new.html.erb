@@ -3,7 +3,7 @@
 <%= form_for :itinerary, url: {action: "create"} do |f| %>
 
     Select Destination:<br>
-    <%= f.collection_select :destination_ids, Destination.all, :id, :city %><br><br>
+    <%= f.collection_select :destination_id, Destination.all, :id, :city %><br><br>
 
     <%= f.label :notes %>
     <%= f.text_area :notes %>
