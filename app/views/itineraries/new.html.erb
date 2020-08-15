@@ -1,6 +1,6 @@
 <h1>New Itinerary</h1>
 
-<%= form_for(@itinerary) do |f| %>
+<%= form_for :itinerary, url: {action: "create"} do |f| %>
 
     Select Destination:<br>
     <%= f.collection_select :destination_ids, Destination.all, :id, :city %><br><br>
