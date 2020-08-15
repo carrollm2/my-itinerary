@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-    belongs :destination
+    belongs_to :destination
 end
