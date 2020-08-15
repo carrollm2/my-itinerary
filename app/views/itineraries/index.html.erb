@@ -1,7 +1,12 @@
 <h1> All Itineraries </h1>
 
 <% current_user.itineraries.each do |i| %>
-
-    <h1><i.destinations</h1>
-    
+    <h1><%=i.name%></h1>
+    <h1><%=i.destination.city%></h1>
+    <% i.destination.events.each do |e|%>
+        <h1><%=e.description%></h1>
+        <h1><%=e.ticket_site%></h1>
+        <h1><%=e.event_date%></h1>
+    <% end %>
+    <h1><%=i.notes%></h1>
 <% end %>
