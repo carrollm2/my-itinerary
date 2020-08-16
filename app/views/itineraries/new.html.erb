@@ -3,16 +3,16 @@
 <%= form_for :itinerary, url: {action: "create"} do |f| %>
 
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br><br>
 
-    Select Destination:<br>
+    <%= f.label :destination %>
     <%= f.collection_select :destination_id, Destination.all, :id, :city %><br><br>
 
-    Select Event:<br>
+    <%= f.label :event %>
     <%= f.grouped_collection_select :event_id, Destination.order(:city), :events, :city, :id, :description %><br><br>    
 
     <%= f.label :notes %>
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes %><br><br>
 
     <%= f.submit %>
 
