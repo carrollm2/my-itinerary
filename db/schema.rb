@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_011642) do
     t.string "name"
     t.integer "user_id"
     t.integer "destination_id"
+    t.integer "event_id"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
