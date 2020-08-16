@@ -17,6 +17,22 @@ class ItinerariesController < ApplicationController
         @itinerary = Itinerary.find(params[:id])
     end
 
+
+    def index
+    end
+
+
+    def edit
+        @itinerary = Itinerary.find(params[:id])
+    end
+
+    def update
+        @itinerary = Itinerary.find(params[:id])
+        @itinerary.update(itinerary_params)
+        redirect_to itinerary_path(@itinerary)
+    end
+
+
     private
     def itinerary_params
         params.require(:itinerary).permit(:name, :destination_id, :event_id, :notes)
