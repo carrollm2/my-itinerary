@@ -1,7 +1,7 @@
 <h1>Edit Itinerary</h1>
 
 
-<%= form_for :itinerary, url: {action: "update"} do |f| %>
+<%= form_for @itinerary do |f| %>
 
     <%= f.label :name %>
     <%= f.text_field :name %><br><br>
