@@ -1,0 +1,10 @@
+<h1> All Events </h1>
+
+<%= @error if @error %>
+
+<% @events.each do |e| %>
+    <h1><%=e.destination.city %></h1>
+    <h1><%=e.description %></h1>
+    <h1><%=e.ticket_site%></h1>
+    <h1><%=e.event_date%></h1>
+<% end %>
