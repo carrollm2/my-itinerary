@@ -12,7 +12,6 @@ class DestinationsController < ApplicationController
         end        
     end
 
-
     def index
         @destinations = Destination.all
     end
@@ -21,11 +20,6 @@ class DestinationsController < ApplicationController
         @destination = Destination.find_by_id(params[:id])
     end
 
-
-
-    def index
-        @destinations = Destination.all
-    end
 
     private
     def destination_params
