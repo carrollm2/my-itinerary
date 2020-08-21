@@ -18,7 +18,6 @@
         <% elsif %>  
           <%= link_to "Add Itinerary", new_itinerary_path %>  |
           <%= link_to "Your Itineraries", user_itineraries_path(current_user) %>  |
-          <%= link_to "Your Events", user_events_path(current_user) %>  |
         <% end %>  
         <%= link_to "Logout", logout_path, method:"delete" %>  |
       <% else %>
