@@ -1,0 +1,7 @@
+<%= flash[:message] if flash[:message] %>
+
+<h1> All Destinations </h1>
+
+<% @destinations.each do |d| %>
+    <h1><%=d.city%></h1>
+<% end %>

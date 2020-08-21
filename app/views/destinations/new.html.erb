@@ -1,0 +1,10 @@
+<h1>New Destination</h1>
+
+<%= form_for :destination, url: {action: "create"} do |f| %>
+
+    <%= f.label :city %>
+    <%= f.text_field :city %><br><br>
+
+    <%= f.submit %>
+
+<% end %>
