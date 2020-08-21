@@ -36,8 +36,6 @@ class EventsController < ApplicationController
                 flash[:message] = "not authorized to see other user's events"
                 redirect_to root_path
             end
-        else
-            @events = Event.all
         end
     end
 
