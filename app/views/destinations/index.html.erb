@@ -1,5 +1,5 @@
 <h1> All Destinations </h1>
 
 <% @destinations.each do |d| %>
-    <h1><%=d.city%></h1>
+    <%= link_to "#{d.city}", destination_events_path(d) %>  
 <% end %>
