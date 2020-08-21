@@ -33,8 +33,8 @@ class EventsController < ApplicationController
             if @user
                 @events = @user.events
             else
-                @error = "That user does not exist"
-                @events = Event.alls
+                flash[:message] = "not authorized to see other user's events"
+                redirect_to root_path
             end
         else
             @events = Event.all
