@@ -19,6 +19,16 @@ class ItinerariesController < ApplicationController
 
 
     def index
+        if params[:user_id]
+            @user = User.find_by_id(params[:user_id])
+
+            if @user == current_user
+                @itineraries = @user.itineraries
+            else
+                flash[:message] = "not authorized to see other user's itineraries"
+                redirect_to root_path
+            end
+        end        
     end
 
 
