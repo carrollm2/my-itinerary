@@ -1,6 +1,6 @@
 <h1> All Itineraries </h1>
 
-<% current_user.itineraries.each do |i| %>
+<% @itineraries.each do |i| %>
     <h1><%=i.name%></h1>
     <h1><%=i.destination.city%></h1>
     <h1><%=i.event.description%></h1>
