@@ -13,8 +13,9 @@
     <div>
       <% if logged_in? %>
         <%= link_to "Add Itinerary", new_itinerary_path %>  |
-        <%= link_to "All Itineraries", itineraries_path %>  |
-        <%= link_to "Your Destinations", user_events_path(current_user) %>  |
+        <%= link_to "Your Itineraries", user_itineraries_path(current_user) %>  |
+        <%= link_to "Your Events", user_events_path(current_user) %>  |
+
         <%= link_to "Logout", logout_path, method:"delete" %>  |
       <% else %>
         <%= link_to "Sign Up", signup_path %>  |
