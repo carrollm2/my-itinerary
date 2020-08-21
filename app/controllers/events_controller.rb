@@ -27,13 +27,13 @@ class EventsController < ApplicationController
 
 
     def index 
-        if params[:user_id]
-            @user = User.find_by_id(params[:user_id])
+        if params[:destination_id]
+            @destination = Destination.find_by_id(params[:destination_id])
 
-            if @user
-                @events = @user.events
+            if @destination
+                @events = @destination.events
             else
-                flash[:message] = "not authorized to see other user's events"
+                flash[:message] = "destination not found"
                 redirect_to root_path
             end
         end
