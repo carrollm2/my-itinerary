@@ -1,3 +1,10 @@
+
+<% if flash[:error] %>
+    <% flash[:error].each do |error_message| %>
+        <p><%= error_message %></p> 
+    <% end %>
+<% end %>
+
 <h1>Sign Up</h1>
 
 <%= form_for :user, url: '/signup' do |f| %>
@@ -9,6 +16,9 @@
 
     <%= f.label :password %>
     <%= f.password_field :password, required:true %><br><br>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, required:true %><br><br>    
 
     <%= f.label "Admin" %>
     <%= f.check_box :admin %><br><br>  
