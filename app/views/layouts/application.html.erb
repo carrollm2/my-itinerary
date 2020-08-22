@@ -7,10 +7,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+
+
   </head>
 
   <body>
-    <div>
+    <div class= "navbar">
       <% if logged_in? %>
         <% if is_admin? %>
           <%= link_to "New Destination", new_destination_path %>  |
@@ -21,10 +25,10 @@
         <% end %>  
         <%= link_to "Logout", logout_path, method:"delete" %>  |
       <% else %>
-        <%= link_to "Sign Up", signup_path %>  |
-        <%= link_to "Log In", login_path %>
+          <%= link_to "Sign Up", signup_path %>
+          <%= link_to "Log In", login_path %>
       <% end %>
     </div>
     <%= yield %>
-  </body>
+  </nav>
 </html>
