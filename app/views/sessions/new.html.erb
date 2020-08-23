@@ -2,16 +2,19 @@
 
 <%= flash[:message] if flash[:message] %>
 
-<%= form_for :user do |f| %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username, required:true  %>
-    <br><br>
+<div class = "login_form">
+    <%= form_for :user do |f| %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, required:true  %>
-    <br><br>
+        <%= f.label :username %>
+        <%= f.text_field :username, required:true  %>
+        <br><br>
 
-    <%= f.submit "Login" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, required:true  %>
+        <br><br>
 
-<% end %>
+        <%= f.submit "Login" %>
+
+    <% end %>
+</div>
