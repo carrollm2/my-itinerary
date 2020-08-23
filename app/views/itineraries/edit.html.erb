@@ -1,20 +1,6 @@
 <h1>Edit Itinerary</h1>
 
+<%= form_tag itinerary_path(@itinerary), method: "put" do %>
+    <%= render 'form' %>
+  <% end %>
 
-<%= form_for @itinerary do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %><br><br>
-
-    <%= f.label :destination %>
-    <%= f.collection_select :destination_id, Destination.all, :id, :city %><br><br>
-
-    <%= f.label :event %>
-    <%= f.grouped_collection_select :event_id, Destination.order(:city), :events, :city, :id, :description %><br><br>    
-
-    <%= f.label :notes %>
-    <%= f.text_area :notes %><br><br>
-
-    <%= f.submit "Update Itinerary" %>
-
-<% end %>
