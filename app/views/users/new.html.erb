@@ -1,5 +1,5 @@
 <% if flash[:error] %>
-    <div id="flash_messages">
+    <div id="flash_error_messages">
         <% flash[:error].each do |error_message| %>
             <p><%= error_message %></p> 
         <% end %>
