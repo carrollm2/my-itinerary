@@ -43,6 +43,12 @@ class ItinerariesController < ApplicationController
     end
 
 
+    def destroy
+        @itinerary = Itinerary.find(params[:id])
+        @itinerary.destroy
+        redirect_to user_itineraries_path(current_user)
+    end
+
     private
     def itinerary_params
         params.require(:itinerary).permit(:name, :destination_id, :event_id, :notes)
