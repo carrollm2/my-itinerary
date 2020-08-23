@@ -1,9 +1,10 @@
-
-<% if flash[:error] %>
-    <% flash[:error].each do |error_message| %>
-        <p><%= error_message %></p> 
+<div id="flash_messages">
+    <% if flash[:error] %>
+        <% flash[:error].each do |error_message| %>
+            <p><%= error_message %></p> 
+        <% end %>
     <% end %>
-<% end %>
+</div>
 
 <h1> Join MyItinerary! </h1>
 
