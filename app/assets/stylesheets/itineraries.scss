@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.new_itinerary_form {
+.itinerary_form {
     padding: 20px;
     background-color: #eeeeee;
     border-radius: 7px;
@@ -11,9 +11,6 @@
     text-align: center;
     width: 500px;
     margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
 }
 
 #itinerary_name {
@@ -21,10 +18,12 @@
 }
 
 #itinerary_destination_id {
+    background-color:rgb(255, 255, 255);
     border-radius: 25px;
 }
 
 #itinerary_event_id {
+    background-color:rgb(255, 255, 255);
     border-radius: 25px;
 }
 
