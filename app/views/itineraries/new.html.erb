@@ -1,19 +1,21 @@
 <h1>New Itinerary</h1>
 
-<%= form_for :itinerary, url: {action: "create"} do |f| %>
+<div class = "new_itinerary_form">
+    <%= form_for :itinerary, url: {action: "create"} do |f| %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br><br>
+        <%= f.label :name %>
+        <%= f.text_field :name %><br><br>
 
-    <%= f.label :destination %>
-    <%= f.collection_select :destination_id, Destination.all, :id, :city %><br><br>
+        <%= f.label :destination %>
+        <%= f.collection_select :destination_id, Destination.all, :id, :city %><br><br>
 
-    <%= f.label :event %>
-    <%= f.grouped_collection_select :event_id, Destination.order(:city), :events, :city, :id, :description %><br><br>    
+        <%= f.label :event %>
+        <%= f.grouped_collection_select :event_id, Destination.order(:city), :events, :city, :id, :description %><br><br>    
 
-    <%= f.label :notes %>
-    <%= f.text_area :notes %><br><br>
+        <%= f.label :notes %>
+        <%= f.text_area :notes %><br><br>
 
-    <%= f.submit %>
+        <%= f.submit %>
 
-<% end %>
+    <% end %>
+</div>
