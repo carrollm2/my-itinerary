@@ -1,3 +1,48 @@
 // Place all the styles related to the Itineraries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.new_itinerary_form {
+    padding: 20px;
+    background-color: #eeeeee;
+    border-radius: 7px;
+    vertical-align: middle;
+    text-align: center;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#itinerary_name {
+    border-radius: 25px;
+}
+
+#itinerary_destination_id {
+    border-radius: 25px;
+}
+
+#itinerary_event_id {
+    border-radius: 25px;
+}
+
+#itinerary_notes {
+    border-radius: 25px;
+    vertical-align: middle;
+    height: 200px;
+    width: 200px;
+    resize:none;
+    display: inline-block;    
+}
+
+h1 {
+    vertical-align: middle;
+    text-align: center;
+}
+
+label {
+    font-style: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
