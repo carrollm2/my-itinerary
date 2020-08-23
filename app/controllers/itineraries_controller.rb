@@ -2,6 +2,7 @@ class ItinerariesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def new
+        @itinerary = Itinerary.new
     end
 
     def create
