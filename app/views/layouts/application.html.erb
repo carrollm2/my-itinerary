@@ -15,6 +15,7 @@
 
   <body>
     <div class= "navbar">
+      <%= link_to "Home", root_path %>
       <% if logged_in? %>
         <% if is_admin? %>
           <%= link_to "New Destination", new_destination_path %>
