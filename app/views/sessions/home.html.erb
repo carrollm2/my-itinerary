@@ -1,4 +1,8 @@
-<%= flash[:message] if flash[:message] %>
+<% if flash[:message] %>
+    <div class="flash-message">
+        <%= flash[:message]%>
+    </div>
+<% end %>
 
 
 <h1>Welcome To MyItinerary!</h1><br><br>
