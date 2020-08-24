@@ -1,4 +1,14 @@
-show.html.erb
+<h1> Created Itinerary </h1>
 
-<%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary) %>  |
-<%= link_to "Delete Itinerary", itinerary_path(@itinerary), :method => :delete %>
+<div class="created_itinerary">
+    <p><%=@itinerary.name%></p>
+    <p><%=@itinerary.destination.city%></p>
+    <p><%=@itinerary.event.description%></p>
+    <p><%= link_to "Ticket Site", @itinerary.event.ticket_site, target: :_blank %></p>    
+    <p><%=@itinerary.event.event_date%></p>
+    <p><%=@itinerary.notes%></h1>
+    <p><%= link_to "Edit", edit_itinerary_path(@itinerary) %></p> | <p><%= link_to "Delete Itinerary", itinerary_path(@itinerary), :method => :delete %></p>
+</div>
+
+
+
