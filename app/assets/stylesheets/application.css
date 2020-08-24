@@ -14,16 +14,30 @@
  *= require_self
  */
 
-#flash_error_messages{
-    border-radius: 7px;
-    background:#ddd;
-    color:#666;border:1px solid red;
-    font-weight: bold;
-    margin: auto;
-    padding: 5px;
-    vertical-align: middle;  
-    width: 600px;
+
+.field_with_errors {
+  border-radius: 7px;
+  background:#ddd;
+  color:#666;border:1px solid red;
+  font-weight: bold;
+  margin: auto;
+  padding: 5px;
+  vertical-align: middle;  
+  width: 600px;
 }
+
+
+#error_explanation {
+  border-radius: 7px;
+  background:#ddd;
+  color:#666;border:1px solid red;
+  font-weight: bold;
+  margin: auto;
+  padding: 5px;
+  vertical-align: middle;  
+  width: 600px;
+}
+
  
 .navbar {
   padding: 20px;
