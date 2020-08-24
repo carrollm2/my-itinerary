@@ -1,6 +1,6 @@
 class ItinerariesController < ApplicationController
     before_action :redirect_if_not_logged_in
-
+ 
     def new
         @itinerary = Itinerary.new
     end
@@ -15,53 +15,17 @@ class ItinerariesController < ApplicationController
     end
 
     def show
-        if params[:user_id]
-            @user = User.find_by_id(params[:user_id])
-
-            if @user == current_user
-                @itinerary = Itinerary.find(params[:id])
-            else
-                flash[:message] = "Not authorized to see other user's itineraries"
-                redirect_to root_path
-            end
-        else
-            flash[:message] = "Not authorized to see other user's itineraries"
-            redirect_to root_path
-        end   
+        authorized_user_itineraries("show") 
     end
 
 
     def index
-        if params[:user_id]
-            @user = User.find_by_id(params[:user_id])
-
-            if @user == current_user
-                @itineraries = @user.itineraries
-            else
-                flash[:message] = "Not authorized to see other user's itineraries"
-                redirect_to root_path
-            end
-        else
-            flash[:message] = "Not authorized to see other user's itineraries"
-            redirect_to root_path 
-        end        
+        authorized_user_itineraries("index")     
     end
 
 
     def edit
-        if params[:user_id]
-            @user = User.find_by_id(params[:user_id])
-
-            if @user == current_user
-                @itinerary = Itinerary.find(params[:id])
-            else
-                flash[:message] = "Not authorized to see other user's itineraries"
-                redirect_to root_path
-            end
-        else
-            flash[:message] = "Not authorized to see other user's itineraries"
-            redirect_to root_path 
-        end          
+        authorized_user_itineraries("edit")     
     end
 
     def update
