@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def new
+        @user = User.new
     end
 
     def create
@@ -8,7 +9,8 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            redirect_to new_user_path, :flash => { :error => @user.errors.full_messages }
+            render :new
+            # redirect_to new_user_path, :flash => { :error => @user.errors.full_messages }
         end
     end
 
