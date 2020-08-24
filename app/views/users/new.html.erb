@@ -1,13 +1,6 @@
-<% if flash[:error] %>
-    <div id="flash_error_messages">
-        <% flash[:error].each do |error_message| %>
-            <p><%= error_message %></p> 
-        <% end %>
-    </div>
-<% end %>
-
-
 <h1> Join MyItinerary! </h1>
+
+<%= render partial: "layouts/errors", locals: {object: @user} %>
 
 <div class = "signup_form">
     <%= form_for :user, url: '/signup' do |f| %>
