@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :is_admin?, :get_user_itinerary
+    helper_method :current_user, :logged_in?, :is_admin?
 
     private
     def current_user
