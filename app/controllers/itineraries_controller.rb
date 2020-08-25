@@ -7,10 +7,15 @@ class ItinerariesController < ApplicationController
 
     def create
         @itinerary = current_user.itineraries.build(itinerary_params)
-        if @itinerary.save
-            redirect_to itinerary_path(@itinerary)
+        if !date_and_time_conflict?
+            if @itinerary.save
+                redirect_to itinerary_path(@itinerary)
+            else
+                render :new
+            end
         else
-            render :new
+            flash[:message] = "There is a date and time conflict with previously scheduled event in your Itinerary."
+            redirect_to new_itinerary_path
         end
     end
 
@@ -58,6 +63,10 @@ class ItinerariesController < ApplicationController
         params.require(:itinerary).permit(:name, :destination_id, :event_id, :notes)
     end  
 
+    def date_and_time_conflict?
+        selected_event = Event.find_by_id(params[:itinerary][:event_id])
+        current_user.events.any? {|e| e.event_date.to_s == selected_event.event_date.to_s}
+    end
 
     def authorized_user_itinerary
         itinerary = Itinerary.find(params[:id])
@@ -68,5 +77,4 @@ class ItinerariesController < ApplicationController
             redirect_to root_path
         end 
     end
-
 end
