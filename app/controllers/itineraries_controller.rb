@@ -8,24 +8,36 @@ class ItinerariesController < ApplicationController
     def create
         @itinerary = current_user.itineraries.build(itinerary_params)
         if @itinerary.save
-            redirect_to @itinerary
+            redirect_to itinerary_path(@itinerary)
         else
             render :new
         end
     end
 
     def show
-        authorized_user_itineraries("show") 
+        authorized_user_itinerary 
     end
 
 
-    def index
-        authorized_user_itineraries("index")     
+    def index  
+        if params[:user_id]
+            @user = User.find_by_id(params[:user_id])
+
+            if @user == current_user
+                @itineraries = current_user.itineraries
+            else
+                flash[:message] = "Not authorized to see other user's itineraries"
+                redirect_to root_path
+            end
+        else
+            flash[:message] = "Not authorized for previous request"
+            redirect_to root_path 
+        end   
     end
 
 
-    def edit
-        authorized_user_itineraries("edit")     
+    def edit 
+        authorized_user_itinerary
     end
 
     def update
@@ -44,5 +56,17 @@ class ItinerariesController < ApplicationController
     private
     def itinerary_params
         params.require(:itinerary).permit(:name, :destination_id, :event_id, :notes)
+    end  
+
+
+    def authorized_user_itinerary
+        itinerary = Itinerary.find(params[:id])
+        if current_user.itineraries.include?(itinerary)
+            @itinerary = itinerary
+        else
+            flash[:message] = "Not authorized to see other user's itineraries"
+            redirect_to root_path
+        end 
     end
+
 end
