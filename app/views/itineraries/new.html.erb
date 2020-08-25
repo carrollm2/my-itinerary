@@ -1,5 +1,13 @@
 <h1>New Itinerary</h1>
 
+ 
+<% if flash[:message] %>
+    <div class="flash-message">
+        <%= flash[:message] %>
+    </div>
+<% end %>
+
+
 <%= render partial: "layouts/errors", locals: {object: @itinerary} %>
 
 <%= form_tag itineraries_path, method: "create" do %>
