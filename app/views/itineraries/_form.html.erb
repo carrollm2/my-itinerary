@@ -1,6 +1,6 @@
 
 <div class="itinerary_form">
-    <%= form_for @itinerary, url: {action: "create"} do |f| %>
+    <%= form_for @itinerary do |f| %>
 
         <%= f.label :name %>
         <%= f.text_field :name %><br><br>
