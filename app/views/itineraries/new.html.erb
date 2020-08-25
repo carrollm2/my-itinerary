@@ -1,5 +1,17 @@
 <h1>New Itinerary</h1>
 
+<% if @itinerary.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@itinerary.errors.count, "error") %> prohibited this itinerary from being saved:</h2>
+ 
+    <ul>
+    <% @itinerary.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_tag itineraries_path, method: "create" do %>
     <%= render 'form' %>
 <% end %>
