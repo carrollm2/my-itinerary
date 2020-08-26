@@ -4,3 +4,6 @@
     <h1><%= e.description =%></h1>
 <% end %>
 
+<p><%= link_to "Edit", edit_destination_path(@destination) %></p>
+<p><%= link_to "Delete Destination", destination_path(@destination), :method => :delete %></p>
+
