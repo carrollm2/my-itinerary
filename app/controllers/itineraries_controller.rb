@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-    before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_logged_in, :redirect_if_admin?
  
     def new
         @itinerary = Itinerary.new
@@ -35,7 +35,7 @@ class ItinerariesController < ApplicationController
                 redirect_to root_path
             end
         else
-            flash[:message] = "Not authorized for previous request"
+            flash[:message] = "Not authorized to itineraries of other users"
             redirect_to root_path 
         end   
     end
