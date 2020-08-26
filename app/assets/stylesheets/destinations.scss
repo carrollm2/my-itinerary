@@ -1,3 +1,18 @@
 // Place all the styles related to the Destinations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.destination_form {
+    padding: 20px;
+    background-color: #eeeeee;
+    border-radius: 7px;
+    vertical-align: middle;
+    text-align: center;
+    width: 500px;
+    margin: auto;
+}
+
+#destination_city {
+    border-radius: 25px;
+}
