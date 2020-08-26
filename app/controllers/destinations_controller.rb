@@ -1,6 +1,8 @@
 class DestinationsController < ApplicationController
+    before_action :redirect_if_not_logged_in, :redirect_if_not_admin?
 
     def new
+        @destination = Destination.new
     end
 
     def create
