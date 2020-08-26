@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
         redirect_to root_path if is_admin?
     end
 
+    def redirect_if_not_admin?
+        redirect_to root_path if !is_admin?
+    end
+
 end
