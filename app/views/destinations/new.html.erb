@@ -2,13 +2,6 @@
 
 <%= render partial: "layouts/errors", locals: {object: @destination} %>
 
-<div class="destination_form">
-    <%= form_for :destination, url: {action: "create"} do |f| %>
-
-        <%= f.label :city %>
-        <%= f.text_field :city %><br><br>
-
-        <%= f.submit %>
-
-    <% end %>
-</div>
+<%= form_tag destinations_path, method: "create" do %>
+    <%= render 'form' %>
+<% end %>
