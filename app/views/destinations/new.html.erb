@@ -1,10 +1,14 @@
 <h1>New Destination</h1>
 
-<%= form_for :destination, url: {action: "create"} do |f| %>
+<%= render partial: "layouts/errors", locals: {object: @destination} %>
 
-    <%= f.label :city %>
-    <%= f.text_field :city %><br><br>
+<div class="destination_form">
+    <%= form_for :destination, url: {action: "create"} do |f| %>
 
-    <%= f.submit %>
+        <%= f.label :city %>
+        <%= f.text_field :city %><br><br>
 
-<% end %>
+        <%= f.submit %>
+
+    <% end %>
+</div>
