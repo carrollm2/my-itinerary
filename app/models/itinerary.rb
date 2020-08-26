@@ -14,5 +14,4 @@ class Itinerary < ApplicationRecord
         end
     end    
 
-
 end
