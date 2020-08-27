@@ -1,3 +1,27 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+.event_form {
+    padding: 20px;
+    background-color: #eeeeee;
+    border-radius: 7px;
+    vertical-align: middle;
+    text-align: center;
+    width: 500px;
+    margin: auto;
+}
+
+#event_description {
+    border-radius: 25px;
+}
+
+#event_ticket_site {
+    border-radius: 25px;
+}
+
+#event_event_date {
+    border-radius: 25px;
+}
