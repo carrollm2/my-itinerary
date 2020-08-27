@@ -1,16 +1,10 @@
 <h1><%="Add New Event for #{@destination.city}" %></h1>
 
-<%= form_for :event, url: {action: "create"} do |f| %>
 
-    <%= f.label :description %>
-    <%= f.text_field :description %><br><br>
+<%= render partial: "layouts/errors", locals: {object: @event} %>
 
-    <%= f.label :ticket_site %>
-    <%= f.text_field :ticket_site %><br><br>
-
-    <%= f.label :event_date %>
-    <%= f.date_field :event_date, :value => DateTime.now.strftime('%Y-%m-%d') %><br><br>
-
-    <%= f.submit %>
-
+<%= form_tag destination_events_path, method: "create" do %>
+    <%= render 'form' %>
 <% end %>
+
+
