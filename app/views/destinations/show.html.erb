@@ -1,12 +1,5 @@
 <h1><%= @destination.city %></h1>
 
-<% @destination.events.each do |e| %>
-    <div class="destination_event">
-        <h1><%= e.description =%></h1>
-    </div>
-<% end %>
-
-
 <div class="destination_links">
     <p><%= link_to "Edit Destination", edit_destination_path(@destination) %></p>
     <p><%= link_to "Delete Destination", destination_path(@destination), :method => :delete %></p>
