@@ -1,0 +1,17 @@
+
+<div class="event_form">
+    <%= form_for [@destination, @event] do |f| %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %><br><br>
+    
+        <%= f.label :ticket_site %>
+        <%= f.text_field :ticket_site %><br><br>
+    
+        <%= f.label :event_date %>
+        <%= f.date_field :event_date, :value => DateTime.now.strftime('%Y-%m-%d') %><br><br>
+    
+        <%= f.submit %>
+
+    <% end %>
+</div>
