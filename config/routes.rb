@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :events
   resources :destinations do
-    resources :events, only: [:new, :create, :show, :index]
+    # resources :events, only: [:new, :create, :show, :index, :update, :destroy]
+    resources :events
   end
 
   resources :itineraries
