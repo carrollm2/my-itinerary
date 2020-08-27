@@ -6,7 +6,9 @@
     <div class="destination_event">
         <p><%=e.description %></p>
         <p><%=link_to "Ticket Site", e.ticket_site, target: :_blank %></p>
-        <p><%=e.event_date%></p>
+        <p><%=e.event_date%></p>    
+        <p><%= link_to "Edit Event", edit_destination_event_path(@destination, e) %></p>
+        <p><%= link_to "Delete Event", destination_event_path(@destination, e), :method => :delete %></p>
     </div>
 <% end %>
 
