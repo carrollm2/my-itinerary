@@ -1,14 +1,14 @@
 class EventsController < ApplicationController
-
+    before_action :redirect_if_not_logged_in, :redirect_if_not_admin?
 
     def new
         @destination = Destination.find_by_id(params[:destination_id])
 
         if @destination
             @event = @destination.events.build
-        else
-            flash[:message] = "destination does not exist"
-            redirect_to destinations_path            
+        else   
+            flash[:message] = "Please select destination to associate event with"
+            redirect_to destinations_path   
         end
     end 
 
@@ -27,12 +27,11 @@ class EventsController < ApplicationController
                     render :new
                 end
             else
-                flash[:message] = "destination does not exist"
-                redirect_to destinations_path                    
+                flash[:message] = "Destination does not exist"
+                redirect_to destination_events_path                    
             end
         else
-            flash[:message] = "please select destination to associate with event"
-            redirect_to destinations_path         
+            redirect_to destination_events_path         
         end
     end
 
@@ -44,16 +43,30 @@ class EventsController < ApplicationController
             if @destination
                 @events = @destination.events
             else
-                flash[:message] = "destination not found"
+                flash[:message] = "Destination not found"
                 redirect_to root_path
             end
+        else
+            redirect_to destination_events_path  
         end
     end
+
 
     def show
         if params[:destination_id]
             @destination = Destination.find_by_id(params[:destination_id])
-            @event = @destination.events.find_by_id(params[:id])
+            if @destination
+                @event = @destination.events.find_by_id(params[:id])
+                if !@event
+                    flash[:message] = "Event does not exist"
+                    redirect_to destination_events_path 
+                end                    
+            else
+                flash[:message] = "Destination does not exist"
+                redirect_to destination_events_path 
+            end
+        else
+            redirect_to destination_events_path   
         end
     end
 
@@ -61,16 +74,39 @@ class EventsController < ApplicationController
     def edit 
         if params[:destination_id]
             @destination = Destination.find_by_id(params[:destination_id])
-            @event = @destination.events.find_by_id(params[:id])            
+            if @destination
+                @event = @destination.events.find_by_id(params[:id])  
+                if !@event
+                    flash[:message] = "Event does not exist"
+                    redirect_to destination_events_path 
+                end  
+            else
+                flash[:message] = "Destination does not exist"
+                redirect_to destination_events_path         
+            end                        
+        else
+            redirect_to destination_events_path        
         end
     end
 
     def update
         if params[:destination_id]
             @destination = Destination.find_by_id(params[:destination_id])
-            @event = @destination.events.find_by_id(params[:id])      
-            @event.update(event_params)
-            redirect_to destination_event_path(@destination, @event)      
+            if @destination
+                @event = @destination.events.find_by_id(params[:id])   
+                if @event
+                    @event.update(event_params)
+                    redirect_to destination_event_path(@destination, @event)      
+                else
+                    flash[:message] = "Event does not exist"
+                    redirect_to destinations_path   
+                end      
+            else     
+                flash[:message] = "Destination does not exist"
+                redirect_to destination_events_path 
+            end                               
+        else
+            redirect_to destination_events_path 
         end
 
     end
@@ -79,13 +115,23 @@ class EventsController < ApplicationController
     def destroy
         if params[:destination_id]        
             @destination = Destination.find_by_id(params[:destination_id])
-            @event = @destination.events.find_by_id(params[:id])         
-            @event.destroy
-            redirect_to destination_events_path(@destination, @event)
+            if @destination
+                @event = @destination.events.find_by_id(params[:id])      
+                if @event   
+                    @event.destroy
+                    redirect_to destination_events_path(@destination, @event)
+                else
+                    flash[:message] = "Event does not exist"
+                    redirect_to destinations_path   
+                end      
+            else     
+                flash[:message] = "Destination does not exist"
+                redirect_to destinations_path  
+            end                    
+        else
+            redirect_to destinations_path 
         end
     end
-
-
 
 
     private
