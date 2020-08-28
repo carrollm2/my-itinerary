@@ -1,6 +1,12 @@
-<%= flash[:message] if flash[:message] %>
+<% if flash[:message] %>
+    <div class="flash-message">
+        <%= flash[:message] %>
+    </div>
+<% end %>
+
 
 <h1> <%="#{@destination.city} Events" %></h1>
+
 
 <% @events.each do |e| %>
     <div class="destination_event">
