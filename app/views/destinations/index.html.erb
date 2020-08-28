@@ -1,5 +1,11 @@
 <h1> All Destinations </h1>
 
+<% if flash[:message] %>
+    <div class="flash-message">
+        <%= flash[:message] %>
+    </div>
+<% end %>
+
 <% @destinations.each do |d| %>
     <div class="all_destinations">
         <%= link_to "#{d.city}", destination_events_path(d) %><br>  
