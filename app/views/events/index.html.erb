@@ -5,20 +5,22 @@
 <% end %>
 
 
-<h1> <%="#{@destination.city} Events" %></h1>
-
-
-<% @events.each do |e| %>
-    <div class="destination_event">
-        <p><%=e.description %></p>
-        <p><%=link_to "Ticket Site", e.ticket_site, target: :_blank %></p>
-        <p><%=e.event_date%></p>    
-        <p><%= link_to "Edit Event", edit_destination_event_path(@destination, e) %></p>
-        <p><%= link_to "Delete Event", destination_event_path(@destination, e), :method => :delete %></p>
-    </div>
-<% end %>
+<h1> <%="#{@destination.city} Events" %></h1><br><br>
 
 <div class="destination_links">
     <%= link_to "Add Event", new_destination_event_path %><br><br>
     <%= link_to "Back to Destination Page", destination_path(@destination) %><br>  
-<div>
+</div><br><br>
+
+<% @events.each do |e| %>
+    <div class="destination_event">
+        <p><%=e.description %></p>
+        <% if e.ticket_site.present?%>
+            <p><%=link_to "Ticket Site", e.ticket_site, target: :_blank %></p>
+        <% end %>
+        <p><%=e.event_date%></p>    
+        <p><%= link_to "Edit Event", edit_destination_event_path(@destination, e) %></p>
+        <p><%= link_to "Delete Event", destination_event_path(@destination, e), :method => :delete %></p>
+    </div><br><br>
+<% end %>
+
