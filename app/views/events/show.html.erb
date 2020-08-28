@@ -1,7 +1,12 @@
 <h1><%= @destination.city %></h1>
 
-<div class="event_links">
+<div class="destination_event">
+    <p><%=@event.description %></p>
+    <p><%=link_to "Ticket Site", @event.ticket_site, target: :_blank %></p>
+    <p><%=@event.event_date%></p>    
     <p><%= link_to "Edit Event", edit_destination_event_path(@destination, @event) %></p>
     <p><%= link_to "Delete Event", destination_event_path(@destination, @event), :method => :delete %></p>
 </div>
+
+
 
