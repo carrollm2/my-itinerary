@@ -1,6 +1,5 @@
 <h1><%="Add New Event for #{@destination.city}" %></h1>
 
-
 <%= render partial: "layouts/errors", locals: {object: @event} %>
 
 <%= form_tag destination_events_path, method: "create" do %>
