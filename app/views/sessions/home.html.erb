@@ -7,6 +7,19 @@
 
 <h1>Welcome To MyItinerary!</h1><br><br>
 
+
+<% if session[:user_id] %>
+  <h1><%= @user.name %></h1>
+  <h2>Email: <%= @user.email %></h2>
+  <h2>Google UID: <%= @user.uid %></h2>
+<% else %>
+    <p id="google_link">
+        <%= link_to('Log in with Google!', '/auth/google_oauth2') %>
+    </p>
+<% end %>
+
+<br><br>
+
 <div class = "welcome">
     <p> Check out exciting, upcoming events from some of the most popular destinations! </p>
 </div>
