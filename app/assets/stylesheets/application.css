@@ -79,3 +79,12 @@
   width: 500px;
   margin: auto;
 }
+
+#google_link {
+  font-weight: bold;
+  margin: auto;
+  vertical-align: middle;  
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
