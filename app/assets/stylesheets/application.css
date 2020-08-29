@@ -80,11 +80,14 @@
   margin: auto;
 }
 
-#google_link {
-  font-weight: bold;
-  margin: auto;
-  vertical-align: middle;  
+#google_signin_button { 
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+#google_signin_button input{
+  color: white;
+  font-weight: bold;
+  background-color: rgb(80, 127, 255);
 }
