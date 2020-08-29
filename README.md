@@ -1,24 +1,28 @@
-# README
+# MyItinerary
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+Welcome to MyItinerary! This new and exciting application will help you search for upcoming events in your favorite small towns and cities that you don't want to miss!
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+To get up and running with MyItinerary, simply perform the following: 
 
-* System dependencies
+(1) git clone git@github.com:carrollm2/my-itinerary.git
+(2) cd into my-itinerary folder
+(3) run 'bundle install'
+(4) That's it! You are all set!
 
-* Configuration
+## Features
 
-* Database creation
+Don't feel like creating another username and password? No worries. You can sign in with Google!
 
-* Database initialization
+Search and add events to your own personal itinerary which will save all the event information and even additional notes you want to add.
 
-* How to run the test suite
+Want to customize the view of your itieraries? Now you can filter to see all your events in one of your upcoming destinations!
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
 
-* Deployment instructions
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* ...
+## License
+MIT
