@@ -5,3 +5,4 @@
 (5) Write Readme
 (6) Write Blog
 (7) Record Demo
+(8) Time attribute needs to be added to Event
