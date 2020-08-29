@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+
+  # Routes for Google authentication
+  # get ‘auth/google/callback’, to: ‘sessions#googleAuth’
+  # get ‘auth/failure’, to: redirect(‘/’)
+
+  get '/auth/google_oauth2/callback' => 'sessions#create'
+
   root to: 'sessions#home'
 
   get '/signup', to: 'users#new'
@@ -11,7 +18,6 @@ Rails.application.routes.draw do
 
   resources :events
   resources :destinations do
-    # resources :events, only: [:new, :create, :show, :index, :update, :destroy]
     resources :events
   end
 
