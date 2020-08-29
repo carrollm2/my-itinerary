@@ -13,9 +13,11 @@
   <h2>Email: <%= current_user.email %></h2>
   <h2>Google UID: <%= current_user.uid %></h2>
 <% else %>
-    <p id="google_link">
-        <%= link_to('Log in with Google!', '/auth/google_oauth2') %>
-    </p>
+    <form action='/auth/google_oauth2'>
+        <p id="google_signin_button">
+            <input type="submit" value="Sign in with Google" />
+        </p>   
+    </form>
 <% end %>
 
 <br><br>
