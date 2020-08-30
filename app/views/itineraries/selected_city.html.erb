@@ -1,0 +1,15 @@
+<h1><%= "All Itineraries For #{@destination.city}" %></h1>
+
+
+<% @itineraries.each do |i| %>
+    <div class="your_itineraries">
+        <p><%=i.name%></p>
+        <p><%=i.destination.city%></p>
+        <p><%=i.event.description%></p>
+        <p><%= link_to "Ticket Site", i.event.ticket_site, target: :_blank %></p>    
+        <p><%=i.event.event_date%></p>
+        <p><%=i.notes%></h1>
+        <p><%= link_to "Edit", edit_itinerary_path(i) %></p> | <p><%= link_to "Delete Itinerary", itinerary_path(i), :method => :delete %><p>
+    </div>  
+    <br><br>   
+<% end %>
