@@ -58,6 +58,13 @@ class ItinerariesController < ApplicationController
         redirect_to user_itineraries_path(current_user)
     end
 
+
+    def selected_city
+        @destination = Destination.find_by(id: params[:itinerary][:destination_id])
+        @itineraries = current_user.itineraries.where(destination_id: params[:itinerary][:destination_id])   
+    end
+
+
     private
     def itinerary_params
         params.require(:itinerary).permit(:name, :destination_id, :event_id, :notes)
