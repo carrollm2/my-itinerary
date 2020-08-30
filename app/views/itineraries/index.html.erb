@@ -1,5 +1,13 @@
 <h1> All Itineraries </h1>
 
+<h2> Filter by Destination </h2>
+
+<%= form_tag(controller: "itineraries", action: "selected_city", method: "post") do %>
+    <%= collection_select :itinerary, :destination_id, current_user.destinations, :id, :city %><br><br>
+    <div><%= submit_tag 'Go' %></div>
+<% end %>
+
+
 <% @itineraries.each do |i| %>
     <div class="your_itineraries">
         <p><%=i.name%></p>
