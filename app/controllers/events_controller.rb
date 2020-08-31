@@ -41,7 +41,7 @@ class EventsController < ApplicationController
             @destination = Destination.find_by_id(params[:destination_id])
 
             if @destination
-                @events = @destination.events
+                @events = @destination.events.sort_by { |e| e.event_date}
             else
                 flash[:message] = "Destination not found"
                 redirect_to root_path
