@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_011642) do
     t.integer "destination_id"
     t.text "description"
     t.string "ticket_site"
-    t.date "event_date"
+    t.datetime "event_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
