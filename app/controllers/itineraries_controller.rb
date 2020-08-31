@@ -29,7 +29,7 @@ class ItinerariesController < ApplicationController
             @user = User.find_by_id(params[:user_id])
 
             if @user == current_user
-                @itineraries = current_user.itineraries
+                @itineraries = current_user.itineraries.sort_by { |i | Event.find_by(id: i.event_id).event_date}
             else
                 flash[:message] = "Not authorized to see other user's itineraries"
                 redirect_to root_path
