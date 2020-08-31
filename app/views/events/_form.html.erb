@@ -9,7 +9,7 @@
         <%= f.text_field :ticket_site %><br><br>
     
         <%= f.label :event_date %>
-        <%= f.date_field :event_date, :value => DateTime.now.strftime('%Y-%m-%d') %><br><br>
+        <%= f.datetime_field :event_date, :value => DateTime.now.strftime("%m/%d/%Y %I:%M%p") %><br><br>
     
         <%= f.submit %>
 
