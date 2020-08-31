@@ -1,12 +1,13 @@
 <h1> All Itineraries </h1>
 
-<h2> Filter by Destination </h2>
+<div id="itinerary_destination_filter">
+    <h2> Filter by Destination </h2>
 
-<%= form_tag(controller: "itineraries", action: "selected_city", method: "post") do %>
-    <%= collection_select :itinerary, :destination_id, current_user.destinations, :id, :city, {include_blank: 'Select a Destination'} %><br><br>
-    <div><%= submit_tag 'Go' %></div>
-<% end %>
-
+    <%= form_tag(controller: "itineraries", action: "selected_city", method: "post") do %>
+        <%= collection_select :itinerary, :destination_id, current_user.destinations, :id, :city, {include_blank: 'Select a Destination'} %><br><br>
+        <div><%= submit_tag 'Go' %></div>
+    <% end %>
+</div><br><br>
 
 <% @itineraries.each do |i| %>
     <div class="your_itineraries">
