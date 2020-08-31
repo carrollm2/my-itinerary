@@ -17,8 +17,9 @@
         <p><%=e.description %></p>
         <% if e.ticket_site.present?%>
             <p><%=link_to "Ticket Site", e.ticket_site, target: :_blank %></p>
-        <% end %>
-        <p><%=e.event_date%></p>    
+        <% end %> 
+        <p><%=e.event_date.strftime("%m/%d/%Y")%></p> 
+        <p><%=e.event_date.strftime("at %I:%M%p")%></p>  
         <p><%= link_to "Edit Event", edit_destination_event_path(@destination, e) %></p>
         <p><%= link_to "Delete Event", destination_event_path(@destination, e), :method => :delete %></p>
     </div><br><br>
