@@ -61,7 +61,7 @@ class ItinerariesController < ApplicationController
 
     def selected_city
         @destination = Destination.find_by(id: params[:itinerary][:destination_id])
-        @itineraries = current_user.itineraries.where(destination_id: params[:itinerary][:destination_id])   
+        @itineraries = current_user.itineraries.where(destination_id: params[:itinerary][:destination_id]).sort_by { |i | Event.find_by(id: i.event_id).event_date}   
     end
 
 
