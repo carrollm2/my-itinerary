@@ -5,5 +5,3 @@
 (6) Write Blog
 (7) Record Demo
 
-
-Add validation user cannot add an event if event date has already passed
