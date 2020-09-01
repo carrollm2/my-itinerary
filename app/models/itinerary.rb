@@ -7,11 +7,18 @@ class Itinerary < ApplicationRecord
     validates_uniqueness_of :user_id, :scope => [:destination_id, :event_id], :message=>"has previously created identical itinerary", on: :create
 
     validate :event_in_destination?, on: :create
+    validate :event_is_upcoming?, on: :create
 
     def event_in_destination?
         if !destination.events.include?(event)
             errors.add :event, 'selected does not take place in Destination selected'
         end
     end    
+
+    def event_is_upcoming?
+        if !Event.upcoming.include?(event)
+            errors.add :event, 'has already occurred'
+        end
+    end 
 
 end
