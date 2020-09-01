@@ -11,14 +11,16 @@
 
 <% @itineraries.each do |i| %>
     <div class="your_itineraries">
-        <p><%=i.name%></p>
-        <p><%=i.destination.city%></p>
-        <p><%=i.event.description%></p>
-        <p><%= link_to "Ticket Site", i.event.ticket_site, target: :_blank %></p>   
-        <p><%=i.event.event_date.strftime("%m/%d/%Y")%></p> 
-        <p><%=i.event.event_date.strftime("at %I:%M%p")%></p>
-        <p><%=i.notes%></h1>
-        <p><%= link_to "Edit", edit_itinerary_path(i) %></p> | <p><%= link_to "Delete Itinerary", itinerary_path(i), :method => :delete %><p>
+        <% if Event.upcoming.include?(i.event) %>
+            <p><%=i.name%></p>
+            <p><%=i.destination.city%></p>
+            <p><%=i.event.description%></p>
+            <p><%= link_to "Ticket Site", i.event.ticket_site, target: :_blank %></p>   
+            <p><%=i.event.event_date.strftime("%m/%d/%Y")%></p> 
+            <p><%=i.event.event_date.strftime("at %I:%M%p")%></p>
+            <p><%=i.notes%></h1>
+            <p><%= link_to "Edit", edit_itinerary_path(i) %></p> | <p><%= link_to "Delete Itinerary", itinerary_path(i), :method => :delete %><p>
+        <% end %>
     </div>  
     <br><br>   
 <% end %>
