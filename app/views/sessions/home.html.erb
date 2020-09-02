@@ -5,10 +5,10 @@
 
 <% if session[:user_id] %> 
 
-    <h1><%= current_user.username %></h1>
-    <h2>Email: <%= current_user.email %></h2>
-    <h2>Google UID: <%= current_user.uid %></h2>
-
+    <p id="session_info">
+        Currently logged in as <%= current_user.username %><br>
+        Your contact information provided is <%= current_user.email %>
+    </p>
 <% else %>
     <form action='/auth/google_oauth2'>
         <p id="google_signin_button">
