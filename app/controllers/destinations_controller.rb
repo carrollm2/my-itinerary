@@ -9,7 +9,8 @@ class DestinationsController < ApplicationController
     def create
         @destination = Destination.new(destination_params)
         if @destination.save
-            redirect_to @destination
+            flash[:success] = "You have successfully added #{@destination.city} as a destination!"
+            redirect_to destination_path(@destination)
         else
             render :new
         end        
@@ -28,12 +29,14 @@ class DestinationsController < ApplicationController
 
     def update
         @destination.update(destination_params)
+        flash[:success] = "You have successfully edited destination!"
         redirect_to destination_path(@destination)
     end
 
 
     def destroy
         @destination.destroy
+        flash[:success] = "You have successfully deleted destination!"
         redirect_to destinations_path(@destination)
     end
 
