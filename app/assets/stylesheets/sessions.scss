@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.welcome, .login_form {
+#welcome, .login_form {
     align-items: center;
     background-color: #eeeeee;
     border-radius: 7px;
@@ -21,4 +21,7 @@ h1 {
     vertical-align: middle;
     text-align: center;  
 }
+
+
+
 
