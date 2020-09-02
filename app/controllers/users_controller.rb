@@ -9,6 +9,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
+            flash[:success] = "You have successfully created an account! Welcome to MyItinerary!"
             redirect_to user_path(@user)
         else
             render :new
