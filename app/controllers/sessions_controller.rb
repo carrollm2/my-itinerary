@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to root_path
+
+    if session.empty?
+      flash[:success] = "You have successfully logged out of MyItinerary!" 
+      redirect_to root_path
+    end
   end
 
   def create
@@ -18,6 +22,7 @@ class SessionsController < ApplicationController
 
       @user.save(:validate => false)
       session[:user_id] = @user.id
+      flash[:success] = "You have successfully logged into MyItinerary!"      
       redirect_to user_path(@user)
     else
       non_auth_login
@@ -34,6 +39,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:user][:username])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
+      flash[:success] = "You have successfully logged into MyItinerary!"        
       redirect_to user_path(user)
     else
       flash[:message] = "incorrect login info, please try again"
