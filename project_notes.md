@@ -5,3 +5,4 @@
 (6) Write Blog
 (7) Record Demo
 
+_form and _flash for session and destinations are similar (can combine?)
