@@ -1,17 +1,14 @@
-<% if flash[:message] %>
-    <div class="flash-message">
-        <%= flash[:message]%>
-    </div>
-<% end %>
-
+<%= render 'form' %>
 
 <h1>Welcome To MyItinerary!</h1><br><br>
 
 
-<% if session[:user_id] %>
-  <h1><%= current_user.username %></h1>
-  <h2>Email: <%= current_user.email %></h2>
-  <h2>Google UID: <%= current_user.uid %></h2>
+<% if session[:user_id] %> 
+
+    <h1><%= current_user.username %></h1>
+    <h2>Email: <%= current_user.email %></h2>
+    <h2>Google UID: <%= current_user.uid %></h2>
+
 <% else %>
     <form action='/auth/google_oauth2'>
         <p id="google_signin_button">
@@ -22,6 +19,6 @@
 
 <br><br>
 
-<div class = "welcome">
-    <p> Check out exciting, upcoming events from some of the most popular destinations! </p>
-</div>
+<p id="welcome">
+    Check out exciting, upcoming events from some of the most popular destinations!
+</p>
