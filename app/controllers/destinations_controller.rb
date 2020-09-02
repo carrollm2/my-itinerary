@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
     before_action :redirect_if_not_logged_in, :redirect_if_not_admin?
+    before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
     def new
         @destination = Destination.new
@@ -19,23 +20,19 @@ class DestinationsController < ApplicationController
     end
 
     def show
-        @destination = Destination.find_by_id(params[:id])
     end
 
 
     def edit 
-        @destination = Destination.find(params[:id])
     end
 
     def update
-        @destination = Destination.find(params[:id])
         @destination.update(destination_params)
         redirect_to destination_path(@destination)
     end
 
 
     def destroy
-        @destination = Destination.find(params[:id])
         @destination.destroy
         redirect_to destinations_path(@destination)
     end
@@ -45,5 +42,9 @@ class DestinationsController < ApplicationController
     def destination_params
         params.require(:destination).permit(:city)
     end    
+
+    def set_destination
+        @destination = Destination.find_by_id(params[:id])
+    end
 
 end
