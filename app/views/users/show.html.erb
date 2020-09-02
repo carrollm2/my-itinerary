@@ -1,2 +1,8 @@
-<h1>Welcome <%=@user.username %></h1>
+<% if flash[:success] %>
+    <div class="flash-success">
+        <%= flash[:success]%>
+    </div>
+<% end %>
+
+<h1>Welcome <%=@user.username %>!</h1>
 
