@@ -1,10 +1,6 @@
 <h1> All Destinations </h1>
 
-<% if flash[:message] %>
-    <div class="flash-message">
-        <%= flash[:message] %>
-    </div>
-<% end %>
+<%= render 'flash' %>
 
 <% @destinations.each do |d| %>
     <div class="all_destinations">
