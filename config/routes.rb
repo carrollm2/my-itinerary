@@ -1,27 +1,24 @@
 Rails.application.routes.draw do
 
 
-  # Routes for Google authentication
-  get '/auth/google_oauth2/callback' => 'sessions#create'
-
-  root to: 'sessions#home'
-
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
+  root to: 'sessions#home'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  # Routes for Google authentication
+  get '/auth/google_oauth2/callback' => 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
 
   post 'users/:user_id/itineraries/selected_city', to: 'itineraries#selected_city'
 
   resources :events
+  resources :itineraries
+
   resources :destinations do
     resources :events
   end
-
-  resources :itineraries
 
   resources :users do
     resources :itineraries, only: [:index]
