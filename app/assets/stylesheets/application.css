@@ -51,6 +51,19 @@
   justify-content: space-evenly;
 }
 
+.flash-success {
+  border-radius: 7px;
+  background:#ddd;
+  color:#666;border:1px solid lightgreen;
+  font-weight: bold;
+  margin: auto;
+  padding: 5px;
+  vertical-align: middle;  
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 
 .navbar {
   padding: 20px;
