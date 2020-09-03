@@ -1,14 +1,9 @@
 <h1> Created Itinerary </h1>
 
 <div class="created_itinerary">
-    <p><%=@itinerary.name%></p>
-    <p><%=@itinerary.destination.city%></p>
-    <p><%=@itinerary.event.description%></p>
-    <p><%= link_to "Ticket Site", @itinerary.event.ticket_site, target: :_blank %></p>    
-    <p><%=@itinerary.event.event_date.strftime("%m/%d/%Y")%></p> 
-    <p><%=@itinerary.event.event_date.strftime("at %I:%M%p")%></p>
-    <p><%=@itinerary.notes%></h1>
-    <p><%= link_to "Edit", edit_itinerary_path(@itinerary) %></p> | <p><%= link_to "Delete Itinerary", itinerary_path(@itinerary), :method => :delete %></p>
+
+    <%= render partial: "itinerary", locals: {user_itinerary: @itinerary} %>
+
 </div>
 
 
