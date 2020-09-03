@@ -15,6 +15,7 @@ class ItinerariesController < ApplicationController
             redirect_to new_itinerary_path            
         else
             if @itinerary.save
+                flash[:success] = "Successfully created Itinerary."
                 redirect_to itinerary_path(@itinerary)
             else
                 render :new
@@ -48,12 +49,14 @@ class ItinerariesController < ApplicationController
 
     def update
         @itinerary.update(itinerary_params)
+        flash[:success] = "Successfully updated Itinerary."
         redirect_to itinerary_path(@itinerary)
     end
 
 
     def destroy
         @itinerary.destroy
+        flash[:success] = "Successfully removed Itinerary."
         redirect_to user_itineraries_path(current_user)
     end
 
