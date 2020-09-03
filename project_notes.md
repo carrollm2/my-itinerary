@@ -6,3 +6,4 @@
 (7) Record Demo
 
 _form and _flash for session and destinations are similar (can combine?)
+destination has flash message index, itineraries new, users show
