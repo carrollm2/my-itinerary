@@ -22,6 +22,7 @@ class EventsController < ApplicationController
                 @event = @destination.events.build(event_params)
  
                 if @event.save
+                    flash[:success] = "Successfully created event"
                     redirect_to destination_events_path(@destination)
                 else
                     render :new
@@ -96,6 +97,7 @@ class EventsController < ApplicationController
                 @event = @destination.events.find_by_id(params[:id])   
                 if @event
                     @event.update(event_params)
+                    flash[:success] = "Successfully updated event"
                     redirect_to destination_event_path(@destination, @event)      
                 else
                     flash[:message] = "Event does not exist"
