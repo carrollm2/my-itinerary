@@ -7,3 +7,8 @@
 
 _form and _flash for session and destinations are similar (can combine?)
 destination has flash message index, itineraries new, users show
+
+selected_city.html.erb
+itineraries.index.html.erb
+events _event.html.erb
+destination_index.html.erb
