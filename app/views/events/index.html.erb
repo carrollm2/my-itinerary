@@ -1,9 +1,4 @@
-<% if flash[:message] %>
-    <div class="flash-message">
-        <%= flash[:message] %>
-    </div>
-<% end %>
-
+<%= render 'layouts/flash' %>
 
 <h1> <%="#{@destination.city} Events" %></h1><br><br>
 
