@@ -28,7 +28,7 @@ class ItinerariesController < ApplicationController
 
     def index  
         if params[:user_id]
-            @user = User.find_by_id(params[:user_id])
+            @user = User.find_by(id: params[:user_id])
 
             if @user == current_user
                 @itineraries = current_user.itineraries.sort_by { |i | Event.find_by(id: i.event_id).event_date}
@@ -70,7 +70,7 @@ class ItinerariesController < ApplicationController
     end  
 
     def date_and_time_conflict?
-        selected_event = Event.find_by_id(params[:itinerary][:event_id])
+        selected_event = Event.find_by(id: params[:itinerary][:event_id])
         current_user.events.any? {|e| e.event_date.to_s == selected_event.event_date.to_s}
     end
 
