@@ -1,5 +1,8 @@
 class ItinerariesController < ApplicationController
     before_action :redirect_if_not_logged_in, :redirect_if_admin?
+    before_action :set_itinerary, only: [:update, :destroy]
+    before_action :authorized_user_itinerary, only: [:show, :edit]
+
  
     def new
         @itinerary = Itinerary.new
@@ -7,20 +10,19 @@ class ItinerariesController < ApplicationController
 
     def create
         @itinerary = current_user.itineraries.build(itinerary_params)
-        if !date_and_time_conflict?
+        if date_and_time_conflict?
+            flash[:message] = "There is a date and time conflict with previously scheduled event in your Itinerary."
+            redirect_to new_itinerary_path            
+        else
             if @itinerary.save
                 redirect_to itinerary_path(@itinerary)
             else
                 render :new
-            end
-        else
-            flash[:message] = "There is a date and time conflict with previously scheduled event in your Itinerary."
-            redirect_to new_itinerary_path
+            end            
         end
     end
 
     def show
-        authorized_user_itinerary 
     end
 
 
@@ -42,18 +44,15 @@ class ItinerariesController < ApplicationController
 
 
     def edit 
-        authorized_user_itinerary
     end
 
     def update
-        @itinerary = Itinerary.find(params[:id])
         @itinerary.update(itinerary_params)
         redirect_to itinerary_path(@itinerary)
     end
 
 
     def destroy
-        @itinerary = Itinerary.find(params[:id])
         @itinerary.destroy
         redirect_to user_itineraries_path(current_user)
     end
@@ -75,8 +74,12 @@ class ItinerariesController < ApplicationController
         current_user.events.any? {|e| e.event_date.to_s == selected_event.event_date.to_s}
     end
 
+    def set_itinerary
+        @itinerary = Itinerary.find_by(id: params[:id])
+    end
+
     def authorized_user_itinerary
-        itinerary = Itinerary.find(params[:id])
+        itinerary = Itinerary.find_by(id: params[:id])
         if current_user.itineraries.include?(itinerary)
             @itinerary = itinerary
         else
