@@ -1,12 +1,9 @@
 <h1><%= @destination.city %></h1>
 
 <div class="destination_event">
-    <p><%=@event.description %></p>
-    <p><%=link_to "Ticket Site", @event.ticket_site, target: :_blank %></p>
-    <p><%=@event.event_date.strftime("%m/%d/%Y")%></p> 
-    <p><%=@event.event_date.strftime("at %I:%M%p")%></p>      
-    <p><%= link_to "Edit Event", edit_destination_event_path(@destination, @event) %></p>
-    <p><%= link_to "Delete Event", destination_event_path(@destination, @event), :method => :delete %></p>
+
+    <%= render partial: "event", locals: {destination: @destination, destination_event: @event} %>
+
 </div>
 
 
