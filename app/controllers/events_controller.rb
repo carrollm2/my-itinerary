@@ -121,6 +121,7 @@ class EventsController < ApplicationController
                 @event = @destination.events.find_by_id(params[:id])      
                 if @event   
                     @event.destroy
+                    flash[:success] = "Successfully removed event"
                     redirect_to destination_events_path(@destination, @event)
                 else
                     flash[:message] = "Event does not exist"
