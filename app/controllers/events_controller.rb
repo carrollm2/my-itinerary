@@ -2,6 +2,7 @@ class EventsController < ApplicationController
     before_action :redirect_if_not_logged_in, :redirect_if_not_admin?
     before_action :set_destination
     before_action :destination_event, only: [:show, :edit]
+    before_action :set_event, only: [:update, :destroy]
 
     def new
 
@@ -63,7 +64,6 @@ class EventsController < ApplicationController
         if params[:destination_id]
 
             if @destination
-                @event = @destination.events.find_by_id(params[:id])   
                 if @event
                     @event.update(event_params)
                     flash[:success] = "Successfully updated event"
@@ -87,7 +87,6 @@ class EventsController < ApplicationController
         if params[:destination_id]        
 
             if @destination
-                @event = @destination.events.find_by_id(params[:id])      
                 if @event   
                     @event.destroy
                     flash[:success] = "Successfully removed event"
@@ -114,6 +113,10 @@ class EventsController < ApplicationController
     def set_destination
         @destination = Destination.find_by_id(params[:destination_id])
     end
+
+    def set_event
+        @event = @destination.events.find_by_id(params[:id])  
+    end    
 
     def destination_event
         if params[:destination_id]
