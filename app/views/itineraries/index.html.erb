@@ -12,12 +12,14 @@
 </div><br><br>
 
 <% @itineraries.each do |i| %>
-    <div class="your_itineraries">
-        <% if Event.upcoming.include?(i.event) %>
 
+
+    <% if current_user.events.upcoming.include?(i.event) %>
+        <div class="your_itineraries">
             <%= render partial: "itinerary", locals: {user_itinerary: i} %>
+            </div>  
+    <% end %>
+    <br><br>  
 
-        <% end %>
-    </div>  
-    <br><br>   
+ 
 <% end %>
