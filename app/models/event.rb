@@ -4,6 +4,7 @@ class Event < ApplicationRecord
     has_many :users, through: :itineraries
 
     scope :upcoming, -> {where("events.event_date > ?", DateTime.current())}
+    scope :sorted_by_event_date, -> {order(event_date: :asc)}
 
     validates :description, :destination_id, :event_date, presence: { message: "must be populated" }, on: :create
     validates_length_of :ticket_site, minimum: 5, maximum: 200, allow_blank: true
