@@ -1,11 +1,11 @@
 <h1><%= "All Itineraries For #{@destination.city}" %></h1>
 
 
-<% @itineraries.each do |i| %>
-    <% if current_user.events.upcoming.include?(i.event) %>
-        <div class="your_itineraries">
-            <%= render partial: "itinerary", locals: {user_itinerary: i} %>
-            </div>  
-    <% end %>
+<% @upcoming_destination_events_sorted.each do |upcoming_destination_event| %>
+
+    <div class="your_itineraries">
+        <%= render partial: "itinerary", locals: {user_itinerary: upcoming_destination_event.itineraries.first} %>
+    </div>  
+
     <br><br>  
 <% end %>
