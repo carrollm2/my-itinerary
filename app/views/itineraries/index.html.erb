@@ -11,15 +11,11 @@
     <% end %>
 </div><br><br>
 
-<% @itineraries.each do |i| %>
+<% @upcoming_events_sorted.each do |upcoming_event| %>
 
-
-    <% if current_user.events.upcoming.include?(i.event) %>
-        <div class="your_itineraries">
-            <%= render partial: "itinerary", locals: {user_itinerary: i} %>
-            </div>  
-    <% end %>
+    <div class="your_itineraries">
+        <%= render partial: "itinerary", locals: {user_itinerary: upcoming_event.itineraries.first} %>
+    </div>  
     <br><br>  
 
- 
 <% end %>
