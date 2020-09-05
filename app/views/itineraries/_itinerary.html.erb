@@ -1,7 +1,9 @@
 <p><%=user_itinerary.name%></p>
 <p><%=user_itinerary.destination.city%></p>
 <p><%=user_itinerary.event.description%></p>
-<p><%= link_to "Ticket Site", user_itinerary.event.ticket_site, target: :_blank %></p>   
+<% if user_itinerary.event.ticket_site.present?%>
+    <p><%= link_to "Ticket Site", user_itinerary.event.ticket_site, target: :_blank %></p>   
+<% end %> 
 <p><%=user_itinerary.event.event_date.strftime("%m/%d/%Y")%></p> 
 <p><%=user_itinerary.event.event_date.strftime("at %I:%M%p")%></p>
 <p><%=user_itinerary.notes%></h1>
