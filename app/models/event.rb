@@ -3,7 +3,7 @@ class Event < ApplicationRecord
     has_many :itineraries
     has_many :users, through: :itineraries
 
-    scope :upcoming, -> {where("events.event_date > ?", DateTime.now)}
+    scope :upcoming, -> {where("events.event_date > ?", DateTime.zone.now)}
 
     validates :description, :destination_id, :event_date, presence: { message: "must be populated" }, on: :create
     validates_length_of :ticket_site, minimum: 5, maximum: 200, allow_blank: true
