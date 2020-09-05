@@ -32,7 +32,7 @@ class ItinerariesController < ApplicationController
             @user = User.find_by(id: params[:user_id])
 
             if @user == current_user
-                @itineraries = current_user.itineraries.sort_by { |i | Event.find_by(id: i.event_id).event_date}
+                @upcoming_events_sorted = current_user.events.upcoming.sorted_by_event_date
             else
                 flash[:message] = "Not authorized to see other user's itineraries"
                 redirect_to root_path
@@ -63,7 +63,7 @@ class ItinerariesController < ApplicationController
 
     def selected_city
         @destination = Destination.find_by(id: params[:itinerary][:destination_id])
-        @itineraries = current_user.itineraries.where(destination_id: params[:itinerary][:destination_id]).sort_by { |i | Event.find_by(id: i.event_id).event_date}   
+        @upcoming_destination_events_sorted = current_user.events.upcoming.sorted_by_event_date.where(destination_id: params[:itinerary][:destination_id])
     end
 
 
