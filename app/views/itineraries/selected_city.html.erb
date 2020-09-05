@@ -4,7 +4,7 @@
 <% @upcoming_destination_events_sorted.each do |upcoming_destination_event| %>
 
     <div class="your_itineraries">
-        <%= render partial: "itinerary", locals: {user_itinerary: upcoming_destination_event.itineraries.first} %>
+        <%= render partial: "itinerary", locals: {user_itinerary: upcoming_destination_event.itineraries.find_by(user_id: current_user.id)} %>
     </div>  
 
     <br><br>  
