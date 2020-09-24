@@ -41,6 +41,16 @@ class DestinationsController < ApplicationController
     end
 
 
+    def chosen_destination
+        @destination = Destination.find_by(city: params[:city])
+        if @destination
+            redirect_to destination_path(@destination)
+        else
+            flash[:message] = "Searched destination not found. Please try again."
+            redirect_to destinations_path
+        end
+    end
+
     private
     def destination_params
         params.require(:destination).permit(:city)
