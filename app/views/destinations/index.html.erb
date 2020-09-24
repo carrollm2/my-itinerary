@@ -2,6 +2,13 @@
 
 <%= render 'layouts/flash' %>
 
+<%= form_tag("/destinations/:id", method: "post") do %>
+    <%= label_tag(:city, "Search for:") %>
+    <%= text_field_tag(:city) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
+
 <% @destinations.each do |d| %>
     <div class="all_destinations">
         <%= link_to "#{d.city}", destination_events_path(d) %><br>  
