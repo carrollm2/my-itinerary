@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :events
   end
 
+  post '/destinations/:id', to: 'destinations#chosen_destination'
+
   resources :users do
     resources :itineraries, only: [:index]
   end
